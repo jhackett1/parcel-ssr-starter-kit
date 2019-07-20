@@ -12,12 +12,6 @@ const server = express()
 
 server.use(express.static("dist/client"))
 
-server.get("/api", (req, res)=>{
-    res.json({
-        status: "no"
-    })
-})
-
 server.get("*", (req, res)=>{
     const context = {}
     const content = renderToString(<App/>)
