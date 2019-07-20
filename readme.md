@@ -40,6 +40,6 @@ With minor changes the build command and `src/client/index.js`, it could also be
 2. Set up reach-router and a pattern for loading initial data on the server
 3. Set up styled components with a server-rendered 
 4. Head management with helmet
-5. Better solution than `npm run dev:server`?
+5. Better solution than `npm run dev:server`? A proxy with the parcel API perhaps
 6. One-click deploys to Heroku and Netlify
 7. Jest support
