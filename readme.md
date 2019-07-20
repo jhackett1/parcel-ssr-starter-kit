@@ -43,3 +43,4 @@ With minor changes the build command and `src/client/index.js`, it could also be
 5. Better solution than `npm run dev:server`? A proxy with the parcel API perhaps
 6. One-click deploys to Heroku and Netlify
 7. Jest support
+8. If after all this, it's a good idea, swap parcel out for webpack
