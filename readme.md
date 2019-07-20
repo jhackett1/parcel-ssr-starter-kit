@@ -4,13 +4,15 @@ A minimalist starter kit for server-rendered React applications.
 
 This kit includes:
 
-- `react`, for declarative, componentised UI
-- `parcel`, for zero-configuration bundling
-- `reach-router`, for routing with first-class accessibility features
+- `react` for declarative, componentised UI
+- `parcel` for zero-configuration bundling
+- `reach-router` for routing with first-class accessibility features
 - `styled-components`, because CSS has a place, but it's not in isomorphic React apps
 - `react-helmet` for managing changes to the document head, such as changing the title on route changes
-- `dotenv`, to manage secrets and API keys in local dev with a `.env` file
+- `dotenv` to manage secrets and API keys in local dev with a `.env` file
 - `isomorphic-unfetch`, for fetching data on the client or the server
+- `eslint` to enforce code style
+- `jest` for snapshot testing React components and unit testing functions
 
 ## Commands
 
@@ -39,3 +41,5 @@ With minor changes the build command and `src/client/index.js`, it could also be
 3. Set up styled components with a server-rendered 
 4. Head management with helmet
 5. Better solution than `npm run dev:server`?
+6. One-click deploys to Heroku and Netlify
+7. Jest support
