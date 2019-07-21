@@ -26,19 +26,13 @@ server.get("/", (req, res)=>{
     } catch (e) {
       if (isRedirect(e))res.redirect(e.uri)
     }
-
-    res.send("ok")
-
-    // fs.readFileSync(path.join(__dirname, '..', 'client', 'index.html'), (err, html)=>{
-    //     if(err) return console.error(error)
-        
-    //     // console.log(html)
-        
-    //     res.send(
-    //         // `<div id="root"></div>`,
-    //         // `<div id="root">${content}</div>`
-    //     )
-    // })
+    fs.readFileSync(path.join(__dirname, '..', 'client', 'index.html'), (err, html)=>{
+        if(err) return console.error(error)
+        res.send(
+            `<div id="root"></div>`,
+            `<div id="root">${content}</div>`
+        )
+    })
 })
 
 const port = process.env.PORT || 3000
