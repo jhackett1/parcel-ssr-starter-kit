@@ -4,6 +4,7 @@ const baseConfig = require("./base.config")
 
 module.exports = {
     ...baseConfig,
+    name: "server",
     entry: "./src/server/index.js",
     target: "node",
     output: {
@@ -11,6 +12,5 @@ module.exports = {
         path: path.join(__dirname, "../dist"),
         libraryTarget: "commonjs2"
     },
-    externals: [nodeExternals()],
-    devServer: {}
+    externals: [nodeExternals()]
 }

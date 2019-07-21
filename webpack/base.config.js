@@ -9,6 +9,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".js", ".jsx"]
-    }
+        extensions: [".js", ".jsx"],
+        alias: {
+            "react-dom": "@hot-loader/react-dom"
+        }
+    },
+    mode: "development"
 }

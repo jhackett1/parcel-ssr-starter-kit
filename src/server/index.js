@@ -6,20 +6,31 @@ import App from "../shared/App"
 
 const server = express()
 
+// -------
+
 const webpack = require("webpack")
-const config = require("../../webpack/server.config")
-const compiler = webpack(config)
-const webpackDevMiddleware = require("webpack-dev-middleware")(compiler)
+const webpackConfig = require("../../webpack/client.config.js")
+const compiler = webpack(webpackConfig)
 
-const webpackHotMiddleware = require("webpack-hot-middleware")(compiler)
+server.use(require("webpack-dev-middleware")(compiler, {
+    noInfo: true, 
+    publicPath: webpackConfig.output.publicPath
+}));
+server.use(require("webpack-hot-middleware")(compiler));
 
-server.use(webpackDevMiddleware)
-server.use(webpackHotMiddleware)
 
-server.use(express.static("dist/public"))
+
+// Serve any static files from the public folder
+server.use('/', express.static('/dist/public'))
+
+
+
+// -------
 
 server.get("/api", (req, res)=>{
-  res.json({message: "a messsage from the server"})
+  res.json({
+    message: "fuckity"
+  })
 })
 
 server.get("*", (req, res)=>{

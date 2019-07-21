@@ -1,9 +1,10 @@
+import { hot } from 'react-hot-loader/root'
 import React, {useState, useEffect} from "react"
 import { Router, Link } from "@reach/router"
 import fetch from "isomorphic-unfetch"
 
 const Home = () =>
-    <h2>Home page</h2>
+    <h2>New ckkontent</h2>
 
 const Second = () => {
     const [data, setData] = useState(false)
@@ -20,10 +21,9 @@ const Second = () => {
     )
 }
 
-
 const App = () =>
     <>
-        <h1>My brok app</h1>
+        <h1>My broken app</h1>
         <Link to="/">Home</Link>
         <Link to="/second">Second</Link>
         <Router>
@@ -32,4 +32,4 @@ const App = () =>
         </Router>
     </>
 
-export default App
+export default hot(App)

@@ -1,42 +1,38 @@
 {
-  "name": "parcel-ssr-starter-kit",
+  "name": "ssr-starter-kit",
   "version": "1.0.0",
   "description": "",
-  "main": "src/client/index.html",
+  "main": "src/dist/server.js",
   "scripts": {
     "build:server": "webpack --mode production --config webpack/server.config.js",
     "build:client": "webpack --mode production --config webpack/client.config",
     "build": "npm-run-all build:*",
     "start": "cross-env NODE_ENV=production node dist/server",
-    "dev:client": "webpack --watch --mode development --config webpack/client.config",
-    "dev:server": "webpack  --mode development --config webpack/server.config && node dist/server",
-    "dev": "npm-run-all --parallel dev:*",
-    "fuck": "node src/server/devServer.js"
+    "dev": "babel-node src/server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
     "@reach/router": "^1.2.1",
     "cross-env": "^5.2.0",
     "express": "^4.17.1",
     "isomorphic-unfetch": "^3.0.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.12.8"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.5.5",
     "babel-loader": "^8.0.6",
-    "html-webpack-plugin": "^3.2.0",
-    "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-middleware": "^3.7.0",
-    "webpack-dev-server": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^1.7.2"
   }
