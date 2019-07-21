@@ -9,6 +9,11 @@ const server = express()
 server.use(express.static("dist/public"))
 
 server.get("*", (req, res)=>{
+  const content = renderToString(
+    <ServerLocation url={req.url}>
+      <App/>
+    </ServerLocation>
+  )
   res.send(
     `
       <html>
@@ -16,7 +21,7 @@ server.get("*", (req, res)=>{
             <title>My React App</title>
         </head>
         <body>
-            <div id="root">${renderToString(<ServerLocation url={req.url}><App/></ServerLocation>)}</div>
+            <div id="root">${content}</div>
             <script src="/bundle.js" defer></script>
         </body>
       </html>
