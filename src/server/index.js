@@ -8,6 +8,10 @@ const server = express()
 
 server.use(express.static("dist/public"))
 
+server.get("/api", (req, res)=>{
+  res.json({message: "a messsage from the server"})
+})
+
 server.get("*", (req, res)=>{
   const content = renderToString(
     <ServerLocation url={req.url}>

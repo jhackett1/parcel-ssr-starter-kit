@@ -1,11 +1,25 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { Router, Link } from "@reach/router"
+import fetch from "isomorphic-unfetch"
 
 const Home = () =>
     <h2>Home page</h2>
 
-const Second = () =>
-    <h2>Second pages</h2>
+const Second = () => {
+    const [data, setData] = useState(false)
+    useEffect(()=>{
+        fetch("/api")
+            .then(res=>res.json())
+            .then(data=>setData(data.message))
+    })
+    return(
+        <>
+            <h2>Second pagess</h2>
+            {data && <p>{data}</p>}
+        </>
+    )
+}
+
 
 const App = () =>
 <>
