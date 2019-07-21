@@ -1,6 +1,7 @@
 import express from "express"
 import React from "react"
 import { renderToString } from "react-dom/server"
+import { ServerLocation } from "@reach/router"
 import App from "../shared/App"
 
 const server = express()
@@ -15,7 +16,7 @@ server.get("*", (req, res)=>{
             <title>My React App</title>
         </head>
         <body>
-            <div id="root">${renderToString(<App/>)}</div>
+            <div id="root">${renderToString(<ServerLocation url={req.url}><App/></ServerLocation>)}</div>
             <script src="/bundle.js" defer></script>
         </body>
       </html>

@@ -5,7 +5,7 @@ const Home = () =>
     <h2>Home page</h2>
 
 const Second = () =>
-    <h2>Second page</h2>
+    <h2>Second pages</h2>
 
 const App = () =>
 <>
