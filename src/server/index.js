@@ -1,38 +1,26 @@
 import express from "express"
 import React from "react"
-import { renderToStaticMarkup } from "react-dom/server"
-import { ServerLocation, isRedirect } from "@reach/router"
+import { renderToString } from "react-dom/server"
 import App from "../shared/App"
-import fs from "fs"
-import path from "path"
-import dotenv from "dotenv"
-
-dotenv.config()
 
 const server = express()
 
-server.use(express.static("dist/client"))
-
-console.log
+server.use(express.static("dist/public"))
 
 server.get("/", (req, res)=>{
-    let content
-    try {
-      content = renderToStaticMarkup(
-        <ServerLocation url={req.url}>
-          <App/>
-        </ServerLocation>
-      )
-    } catch (e) {
-      if (isRedirect(e))res.redirect(e.uri)
-    }
-    fs.readFileSync(path.join(__dirname, '..', 'client', 'index.html'), (err, html)=>{
-        if(err) return console.error(error)
-        res.send(
-            `<div id="root"></div>`,
-            `<div id="root">${content}</div>`
-        )
-    })
+  res.send(
+    `
+      <html>
+        <head>
+            <title>My React App</title>
+        </head>
+        <body>
+            <div id="root">${renderToString(<App/>)}</div>
+            <script src="/bundle.js" defer></script>
+        </body>
+      </html>
+    `
+  )
 })
 
 const port = process.env.PORT || 3000
