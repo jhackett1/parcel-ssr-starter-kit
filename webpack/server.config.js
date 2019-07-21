@@ -11,5 +11,6 @@ module.exports = {
         path: path.join(__dirname, "../dist"),
         libraryTarget: "commonjs2"
     },
-    externals: [nodeExternals()]
+    externals: [nodeExternals()],
+    devServer: {}
 }

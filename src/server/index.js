@@ -6,6 +6,16 @@ import App from "../shared/App"
 
 const server = express()
 
+const webpack = require("webpack")
+const config = require("../../webpack/server.config")
+const compiler = webpack(config)
+const webpackDevMiddleware = require("webpack-dev-middleware")(compiler)
+
+const webpackHotMiddleware = require("webpack-hot-middleware")(compiler)
+
+server.use(webpackDevMiddleware)
+server.use(webpackHotMiddleware)
+
 server.use(express.static("dist/public"))
 
 server.get("/api", (req, res)=>{

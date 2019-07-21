@@ -14,7 +14,7 @@ const Second = () => {
     })
     return(
         <>
-            <h2>Second pagess</h2>
+            <h2>Second page</h2>
             {data && <p>{data}</p>}
         </>
     )
@@ -22,14 +22,14 @@ const Second = () => {
 
 
 const App = () =>
-<>
-    <h1>My app</h1>
-    <Link to="/">Home</Link>
-    <Link to="/second">Second</Link>
-    <Router>
-        <Home path="/"/>
-        <Second path="/second"/>
-    </Router>
-</>
+    <>
+        <h1>My brok app</h1>
+        <Link to="/">Home</Link>
+        <Link to="/second">Second</Link>
+        <Router>
+            <Home path="/"/>
+            <Second path="/second"/>
+        </Router>
+    </>
 
 export default App
