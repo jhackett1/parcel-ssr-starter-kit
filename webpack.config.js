@@ -1,13 +1,7 @@
-const webpack = require("webpack")
 const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const nodeExternals = require("webpack-node-externals")
 
-browserConfig = {
-    entry: "./src/client/index.js",
-    output: {
-        filename: "bundle.js",
-        path: path.join(__dirname, "/dist/public")
-    },
+common = {
     module: {
         rules: [
             {
@@ -22,7 +16,17 @@ browserConfig = {
     }
 }
 
-serverConfig = {
+client = {
+    ...common,
+    entry: "./src/client/index.js",
+    output: {
+        filename: "bundle.js",
+        path: path.join(__dirname, "/dist/public")
+    }
+}
+
+server = {
+    ...common,
     entry: "./src/server/index.js",
     target: "node",
     output: {
@@ -30,18 +34,7 @@ serverConfig = {
         path: path.join(__dirname, "/dist"),
         libraryTarget: "commonjs2"
     },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)*/,
-                exclude: /(node_modules)/,
-                loader: "babel-loader"
-            }
-        ]
-    },
-    resolve: {
-        extensions: [".js", ".jsx"]
-    }
+    externals: [nodeExternals()]
 }
 
-module.exports = [browserConfig, serverConfig]
+module.exports = [client, server]
