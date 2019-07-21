@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/client/index.html",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --config webpack/server.config.js && webpack --mode production --config webpack/client.config",
     "start": "cross-env NODE_ENV=production node dist/server"
   },
   "keywords": [],

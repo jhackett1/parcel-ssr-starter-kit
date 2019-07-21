@@ -7,7 +7,7 @@ const server = express()
 
 server.use(express.static("dist/public"))
 
-server.get("/", (req, res)=>{
+server.get("*", (req, res)=>{
   res.send(
     `
       <html>
