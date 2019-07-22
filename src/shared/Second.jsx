@@ -3,7 +3,11 @@ import fetch from "isomorphic-unfetch"
 
 const Second = () => 
     <>
-        <h2>Second page</h2>
+        <h2>Second page content</h2>
+        <p>test content in here</p>
+        <button>Test button here</button>
+        <a href="#">test thing here</a>
+        <a href="#">test thing here</a>
     </>
 
     // fetch("/api")

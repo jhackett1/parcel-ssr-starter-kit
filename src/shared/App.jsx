@@ -1,5 +1,6 @@
 import React from "react"
-import { Route, Link } from "react-router-dom"
+import { Switch, Link } from "react-router-dom"
+import AccessibleRoute from "./AccessibleRoute"
 
 import Home from "./Home"
 import Second from "./Second"
@@ -9,10 +10,10 @@ const App = () =>
         <h1>My broken app</h1>
         <Link to="/">Home</Link>
         <Link to="/second">Second</Link>
-
-        <Route component={Home} path="/"/>
-        <Route component={Second} path="/second"/>
-        
+        <Switch>
+            <AccessibleRoute component={Second} path="/second"/>
+            <AccessibleRoute component={Home} path="/"/>
+        </Switch>
     </>
 
 export default App
