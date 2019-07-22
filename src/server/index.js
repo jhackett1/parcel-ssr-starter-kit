@@ -1,7 +1,7 @@
 import express from "express"
 import React from "react"
 import { renderToString } from "react-dom/server"
-import { ServerLocation } from "@reach/router"
+import { StaticRouter } from "react-router-dom"
 import hmr from "./hmr"
 import App from "../shared/App"
 
@@ -19,10 +19,11 @@ server.get("/api", (req, res)=>{
 })
 
 server.get("*", (req, res)=>{
+  const context = {}
   const content = renderToString(
-    <ServerLocation url={req.url}>
+    <StaticRouter location={req.url} context={context}>
       <App/>
-    </ServerLocation>
+    </StaticRouter>
   )
   res.send(
     `<!doctype html>
