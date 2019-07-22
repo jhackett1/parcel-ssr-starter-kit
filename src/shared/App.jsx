@@ -1,25 +1,8 @@
-import { hot } from 'react-hot-loader/root'
-import React, {useState, useEffect} from "react"
+import React from "react"
 import { Router, Link } from "@reach/router"
-import fetch from "isomorphic-unfetch"
 
-const Home = () =>
-    <h2>My content</h2>
-
-const Second = () => {
-    const [data, setData] = useState(false)
-    useEffect(()=>{
-        fetch("/api")
-            .then(res=>res.json())
-            .then(data=>setData(data.message))
-    })
-    return(
-        <>
-            <h2>Second page</h2>
-            {data && <p>{data}</p>}
-        </>
-    )
-}
+import Home from "./Home"
+import Second from "./Second"
 
 const App = () =>
     <>
@@ -32,4 +15,4 @@ const App = () =>
         </Router>
     </>
 
-export default hot(App)
+export default App

@@ -7,10 +7,8 @@ import App from "../shared/App"
 
 const server = express()
 
-// Hot module replacement
-if(process.env.NODE_ENV !== "production"){
-  hmr(server)
-}
+// Insert hot module replacement middleware in dev only
+if(process.env.NODE_ENV !== "production") hmr(server)
 
 server.use(express.static('./dist/public'))
 
