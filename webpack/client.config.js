@@ -1,6 +1,7 @@
 const path = require("path")
 const baseConfig = require("./base.config")
 const webpack = require("webpack")
+const WebpackBar = require("webpackbar")
 
 module.exports = {
     ...baseConfig,
@@ -16,5 +17,6 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
+        new WebpackBar()
     ]
 }

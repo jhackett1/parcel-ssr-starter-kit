@@ -6,26 +6,20 @@ import App from "../shared/App"
 
 const server = express()
 
-// -------
+// Hot module replacement
+if(process.env.NODE_ENV !== "production"){
+  const webpack = require("webpack")
+  const webpackConfig = require("../../webpack/client.config.js")
+  const compiler = webpack(webpackConfig)
+  server.use(require("webpack-dev-middleware")(compiler, {
+      noInfo: true, 
+      publicPath: webpackConfig.output.publicPath
+  }));
+  server.use(require("webpack-hot-middleware")(compiler));
+}
 
-const webpack = require("webpack")
-const webpackConfig = require("../../webpack/client.config.js")
-const compiler = webpack(webpackConfig)
-
-server.use(require("webpack-dev-middleware")(compiler, {
-    noInfo: true, 
-    publicPath: webpackConfig.output.publicPath
-}));
-server.use(require("webpack-hot-middleware")(compiler));
-
-
-
-// Serve any static files from the public folder
-server.use('/', express.static('/dist/public'))
-
-
-
-// -------
+console.log("\n\n\nStatic file hosting\n\n\n")
+server.use(express.static('./dist/public'))
 
 server.get("/api", (req, res)=>{
   res.json({

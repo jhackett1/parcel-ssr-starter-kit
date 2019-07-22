@@ -14,5 +14,5 @@ module.exports = {
             "react-dom": "@hot-loader/react-dom"
         }
     },
-    mode: "development"
+    mode: "development",
 }
