@@ -1,3 +1,11 @@
+## Folder structure
+
+- `config`, webpack config lives here
+- `src`
+    - `server`, by default, the express.js server lives here. add controllers, models and routes to taste
+    - `client`, logic for mounting and hydrating react on the client lives here
+    - `shared`, react components live here
+
 ## Commands
 
 - `npm run dev` to fire up a dev server with hot module replacement for react components (sever-side changes will need manual restarts)
@@ -11,3 +19,5 @@
 3. Styling with styled-components
 4. One-click deploys to Heroku
 5. Dotenv and env config in build
+6. Jest
+7. eslint
