@@ -4,7 +4,7 @@ import { Router, Link } from "@reach/router"
 import fetch from "isomorphic-unfetch"
 
 const Home = () =>
-    <h2>New ckkontent</h2>
+    <h2>My content</h2>
 
 const Second = () => {
     const [data, setData] = useState(false)

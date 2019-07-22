@@ -1,11 +1,9 @@
 const path = require("path")
-const baseConfig = require("./base.config")
 const webpack = require("webpack")
 const WebpackBar = require("webpackbar")
 
 module.exports = {
-    ...baseConfig,
-    name: "client",
+    mode: "development",
     entry: [
         "./src/client/index.js",
         "webpack-hot-middleware/client"
@@ -13,7 +11,21 @@ module.exports = {
     output: {
         filename: "bundle.js",
         path: path.join(__dirname, "../dist/public"),
-        // publicPath: "/"
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)*/,
+                exclude: /(node_modules)/,
+                loader: "babel-loader"
+            }
+        ]
+    },
+    resolve: {
+        extensions: [".js", ".jsx"],
+        alias: {
+            "react-dom": "@hot-loader/react-dom"
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

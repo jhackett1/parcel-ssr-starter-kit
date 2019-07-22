@@ -1,4 +1,7 @@
+const WebpackBar = require("webpackbar")
+
 module.exports = {
+    mode: "production",
     module: {
         rules: [
             {
@@ -14,5 +17,7 @@ module.exports = {
             "react-dom": "@hot-loader/react-dom"
         }
     },
-    mode: "development",
+    plugins: [
+        new WebpackBar()
+    ]
 }

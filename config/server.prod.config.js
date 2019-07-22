@@ -1,7 +1,6 @@
 const path = require("path")
 const nodeExternals = require("webpack-node-externals")
-const baseConfig = require("./base.config")
-const WebpackBar = require("webpackbar")
+const baseConfig = require("./base.prod.config")
 
 module.exports = {
     ...baseConfig,
@@ -13,8 +12,5 @@ module.exports = {
         path: path.join(__dirname, "../dist"),
         libraryTarget: "commonjs2"
     },
-    externals: [nodeExternals()],
-    plugins: [
-        new WebpackBar()
-    ]
+    externals: [nodeExternals()]
 }

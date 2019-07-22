@@ -4,11 +4,11 @@
   "description": "",
   "main": "src/dist/server.js",
   "scripts": {
-    "build:server": "webpack --mode production --config webpack/server.config.js",
-    "build:client": "webpack --mode production --config webpack/client.config",
+    "build:server": "webpack --config config/server.prod.config.js",
+    "build:client": "webpack --config config/client.prod.config.js",
     "build": "npm-run-all build:*",
     "start": "cross-env NODE_ENV=production node dist/server",
-    "dev": "babel-node src/server"
+    "dev": "cross-env NODE_ENV=development babel-node src/server"
   },
   "keywords": [],
   "author": "",
