@@ -1,8 +1,4 @@
 {
-    "buildpacks": [
-        {
-            "url": "heroku/nodejs"
-        }
-    ]
+    "buildpacks": [{"url": "heroku/nodejs"}]
 }
   
