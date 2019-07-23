@@ -5,6 +5,8 @@ import AccessibleRoute from "./AccessibleRoute"
 import Home from "./Home"
 import Second from "./Second"
 
+import("./Second").then(b => <Second/>)
+
 const App = () =>
     <>
         <h1>My broken app</h1>
