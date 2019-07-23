@@ -6,10 +6,10 @@
 
 - `config`, webpack config lives here
 - `src`
-    - `server`, by default, the express.js server lives here. add controllers, models and routes to taste
+    - `server`, the express.js server lives here, along with a HTML document template and the hot module replacement middleware used during dev mode. add controllers, models and routes to taste.
     - `client`, logic for mounting and hydrating react on the client lives here
     - `shared`, react components live here
-
+=
 ## Commands
 
 - `npm run dev` to fire up a dev server with hot module replacement for react components (sever-side changes will need manual restarts)
