@@ -18,11 +18,12 @@
 
 ## To do
 
-1. Routing (DONE)
-2. isomorphic data fetching pattern
-3. Code splitting
-4. Styling with styled-components (DONE)
-5. One-click deploys to Heroku
-6. Dotenv and env config in build
-7. Jest
-8. eslint
+- ~routing~ (DONE)
+- ~styling with styled-components~ (DONE)
+- ~one-click deploys to Heroku~ (DONE)
+- isomorphic data fetching pattern
+- code splitting
+- jest
+- eslint
+- dotenv and passsing env config into client bundle
+- gzip compression
