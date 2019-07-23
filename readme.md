@@ -1,3 +1,7 @@
+# Accessible by default React starter kit
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Folder structure
 
 - `config`, webpack config lives here
@@ -14,10 +18,11 @@
 
 ## To do
 
-1. Routing and isomorphic data fetching pattern
-2. Code splitting
-3. Styling with styled-components
-4. One-click deploys to Heroku
-5. Dotenv and env config in build
-6. Jest
-7. eslint
+1. Routing (DONE)
+2. isomorphic data fetching pattern
+3. Code splitting
+4. Styling with styled-components (DONE)
+5. One-click deploys to Heroku
+6. Dotenv and env config in build
+7. Jest
+8. eslint
